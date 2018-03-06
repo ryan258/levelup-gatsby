@@ -1,24 +1,32 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import styled from 'styled-components';
+
+const HeaderWrapper = styled.div`
+  background: #524763;
+  margin-bottom: 1.45rem;
+  h1 {
+    img {
+      background: #fff;
+      height: 80px;
+      padding: 1rem;
+    }
+  }
+`;
+
+const HeaderContainer = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 1.45rem 1.0875rem;
+`;
 
 import logo from '../../images/logo--apple.jpg';
 
 // console.log(logo);
 
 const Header = () => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem'
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem'
-      }}
-    >
+  <HeaderWrapper>
+    <HeaderContainer>
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
@@ -27,21 +35,21 @@ const Header = () => (
             textDecoration: 'none'
           }}
         >
-          <img src={logo} alt="Apple Logo" />
+          <img src={logo} alt="Apple Logo" /> All Your Apples Belong to Us
         </Link>
       </h1>
-    </div>
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
-    </nav>
-  </div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+        </ul>
+      </nav>
+    </HeaderContainer>
+  </HeaderWrapper>
 );
 
 export default Header;
