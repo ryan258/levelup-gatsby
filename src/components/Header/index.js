@@ -1,15 +1,17 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 const HeaderWrapper = styled.div`
   background: #524763;
   margin-bottom: 1.45rem;
+  overflow: hidden;
+  position: relative;
+  height: 70vh;
   h1 {
     img {
-      background: #fff;
       height: 80px;
-      padding: 1rem;
     }
   }
 `;
@@ -18,9 +20,11 @@ const HeaderContainer = styled.div`
   margin: 0 auto;
   max-width: 960px;
   padding: 1.45rem 1.0875rem;
+  position: relative;
+  z-index: 2;
 `;
 
-import logo from '../../images/logo--apple.jpg';
+import logo from '../../images/logo.svg';
 
 // console.log(logo);
 
@@ -38,8 +42,8 @@ const Header = ({ data }) => (
           <img src={logo} alt="Apple Logo" />
         </Link>
       </h1>
-      <p>{data.site.siteMetadata.title}</p>
-      <p>{data.site.siteMetadata.desc}</p>
+      {/* <p>{data.site.siteMetadata.title}</p>
+      <p>{data.site.siteMetadata.desc}</p> */}
       <nav>
         <ul>
           <li>
@@ -51,6 +55,16 @@ const Header = ({ data }) => (
         </ul>
       </nav>
     </HeaderContainer>
+    <Img
+      style={{
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        width: '100%',
+        height: '100%'
+      }}
+      sizes={data.background.sizes}
+    />
   </HeaderWrapper>
 );
 
